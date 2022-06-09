@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{%block content%}
+<h1 align = "center">Messages</h1>
+<ul class = "list-group list-group-flush" id = "messages">
+    {% for message in user.messages %}
+        <li class = "list-group-item">{{ user.username }}</li>
+        <li class = "list-group-item">{{ message.textMessage }}</li>
+    {% endfor %}
+</ul>
+
+
+<form method = "POST">
+    <textarea name = "message" id = "message" class = "form-control"></textarea>
+    <div align = "center">
+        <button type = "submit" class = "btn btn-primary">Send</button>
+    </div>
+</form>
+{% endblock%}
