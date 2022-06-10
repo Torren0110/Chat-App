@@ -4,18 +4,33 @@
 
 {%block content%}
 <h1 align = "center">Messages</h1>
+
 <ul class = "list-group list-group-flush" id = "messages">
-    {% for message in user.messages %}
-        <li class = "list-group-item">{{ user.username }}</li>
-        <li class = "list-group-item">{{ message.textMessage }}</li>
+    
+    {% for message in messages %}
+        {% if message.user_id == user.id %}
+            <li align = "right" class = "list-group-item">You</li>
+            <li align = "right" class = "list-group-item">{{ message.textMessage }}</li>
+        {% else %}
+            <li class = "list-group-item">{{ message.username }}</li>
+            <li class = "list-group-item">{{ message.textMessage }}</li>
+        {% endif %}
     {% endfor %}
+
 </ul>
 
 
 <form method = "POST">
     <textarea name = "message" id = "message" class = "form-control"></textarea>
     <div align = "center">
-        <button type = "submit" class = "btn btn-primary">Send</button>
+        <a href = '#pagebottom'>
+            <br>
+            <button type = "submit" class = "btn btn-primary">Send</button>
+            <br>
+        </a>
     </div>
 </form>
+
+<div id = 'pagebottom' padding-top = 30px width = 100%><br></div>
+
 {% endblock%}
