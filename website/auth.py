@@ -27,6 +27,9 @@ def login():
 
     return render_template("login.html", user = current_user)
 
+@auth.route('/', methods = ['GET', 'POST'])
+def redir():
+    return redirect(url_for('auth.login'))
 
 @auth.route('/logout')
 @login_required
@@ -43,10 +46,13 @@ def sign_up():
         password = request.form.get('password')
         confPassword = request.form.get('confPassword')
 
-        user = User.query.filter_by(username = username).first()
+        CheckForUsername = User.query.filter_by(username = username).first()
+        CheckForEmail = User.query.filter_by(email = email).first()
 
-        if(user):
+        if(CheckForUsername):
             flash('Username not available', category = 'error')
+        elif(CheckForEmail):
+            flash('User Exists with the given email', category = 'error')
         elif(password != confPassword):
             flash('Passwords do not match', category = 'error')
         else:
