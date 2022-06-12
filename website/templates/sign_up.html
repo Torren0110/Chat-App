@@ -4,62 +4,75 @@
 
 {% block content %}
 <form method = "POST">
-    <h3 align = "center">Sign Up</h3>
-    <div class = "form-group">
-        <label for = "Name">Name</label>
-        <input 
-            type = "text" 
-            class = "form-control" 
-            id = "name" 
-            name = "name" 
-            placeholder = "Enter name"
-        />
-    </div>
-    <div class = "form-group">
-        <label for = "email">Email Address</label>
-        <input 
-            type = "email" 
-            class = "form-control" 
-            id = "email" 
-            name = "email" 
-            placeholder = "Enter email"
-        />
-    </div>
-    <div class = "form-group">
-        <label for = "Username">Username</label>
-        <input 
-            type = "text"
-            class = "form-control" 
-            id = "username" 
-            name = "username" 
-            placeholder = "Enter Username"
-        />
-    </div>
-    <div class = "form-group">
-        <label for = "password">Password</label>
-        <input 
-            type = "password" 
-            class = "form-control"
-            id = "password" 
-            name = "password" 
-            placeholder = "Enter Password"
-        />
-    </div>
-    <div class = "form-group">
-        <label for = "confPassword">Confirm Password</label>
-        <input 
-            type = "password"
-            class = "form-control" 
-            id = "confPassword"
-            name = "confPassword" 
-            placeholder = "Confirm Password"
-        />
-    </div>
-    <br/>
-    <button
-        type = "submit"
-        class = "btn btn-primary"
-    >Create Account</button>
+    <div class="card-body p-5 text-center">
+  
+        <div class="mb-md-5 mt-md-4 pb-5">
+
+          <h2 class="fw-bold mb-2 text-uppercase">Sign Up</h2>
+          <p class="text-white-50 mb-5">Please enter your details!</p>
+
+          <div class="form-outline form-white mb-4">
+            <input 
+                type = "text" 
+                class = "form-control" 
+                id = "name" 
+                name = "name" 
+                placeholder = "Enter name" 
+                class="form-control form-control-lg" />
+            <label class="form-label" for="typeEmailX">Name</label>
+          </div>
+
+          <div class="form-outline form-white mb-4">
+            <input 
+                type = "email" 
+                class = "form-control" 
+                id = "email" 
+                name = "email" 
+                placeholder = "Enter email"
+                class="form-control form-control-lg" />
+            <label class="form-label" for="typeEmailX">Eamil Address</label>
+          </div>
+
+          <div class="form-outline form-white mb-4">
+            <input 
+                type = "text"
+                class = "form-control" 
+                id = "username" 
+                name = "username" 
+                placeholder = "Enter Username" 
+                class="form-control form-control-lg" />
+            <label class="form-label" for="typeEmailX">Username</label>
+          </div>
+
+          <div class="form-outline form-white mb-4">
+            <input 
+                type = "password" 
+                class = "form-control"
+                id = "password" 
+                name = "password" 
+                placeholder = "Enter Password" 
+                class="form-control form-control-lg" />
+            <label class = "form-label" for = "typePasswordX">Password</label>
+          </div>
+
+          <div class="form-outline form-white mb-4">
+            <input 
+                type = "password"
+                class = "form-control" 
+                id = "confPassword"
+                name = "confPassword" 
+                placeholder = "Re-enter Password" 
+                class="form-control form-control-lg" />
+            <label class="form-label" for="typePasswordX">Confirm Password</label>
+          </div>
+
+          <button class="btn btn-outline-light btn-lg px-5" type="submit">Create Account</button>
+        </div>
+        <div>
+          <p class="mb-0">Already have an account? <a href="/login" class="text-white-50 fw-bold">Log In</a>
+          </p>
+        </div>
+      </div>
 </form>
 
 

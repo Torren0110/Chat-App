@@ -14,16 +14,17 @@ def login():
 
         user = User.query.filter_by(username = username).first()
 
-        if(user):
+        if(len(username) == 0 or len(password) == 0):
+            flash('Enter all Nessasary Feilds.', category = 'error')
+        elif(user):
             if(check_password_hash(user.password, password)):
-                flash('Logged In', category = 'success')
                 login_user(user, remember = True)
+                flash('Logged In', category = 'success')
                 return redirect(url_for('views.home'))
             else:
                 flash('Incorrect Password, try again', category = 'error')
         else:
             flash('Username does not exist, try again', category = 'error')
-
 
     return render_template("login.html", user = current_user)
 

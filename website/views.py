@@ -10,7 +10,6 @@ loginTime = func.now()
 @views.route('/home', methods = ['GET', 'POST'])
 @login_required
 def home():
-
     if request.method == 'POST':
         message = request.form.get('message')
 
