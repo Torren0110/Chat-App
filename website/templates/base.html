@@ -22,6 +22,31 @@
 </head>
 <body>
   <section class="vh-100 gradient-custom">
+    {% with messages = get_flashed_messages(with_categories = true) %}
+    
+    {% if messages %}
+      {% for category, message in messages %}
+      {% if category == 'error' %}
+        <div class = "alert alert-danger alert-dismissable fade show" role = "alert">
+          {{ message }}
+          <button type = "button" class = "close" data-dismiss = "alert">
+            <span aria-hidden = "true">&times;</span>
+          </button>
+        </div>
+      {% else %}
+        <div class = "alert alert-success alert-dismissable fade show" role = "alert">
+          {{ message }}
+          <button type = "button" class = "close" data-dismiss = "alert">
+            <span aria-hidden = "true">&times;</span>
+          </button>
+        </div>
+      {% endif %}
+      {% endfor %}
+    {% endif %}
+
+    {% endwith %}
+
+
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -36,12 +61,14 @@
 
   <style>
     .gradient-custom {
-background: #6a11cb;
+      background: #6a11cb no-repeat center fixed;
 
-background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+      background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
 
-background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
-}
+      background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+      
+
+    }
   </style>
 
     <script
